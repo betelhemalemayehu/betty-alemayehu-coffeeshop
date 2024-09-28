@@ -1,0 +1,131 @@
+@use './partials/global' as *;
+
+/* Hero Section */
+.header {
+    background-image: url(../assets/images/coffee-circle.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 52rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__content {
+    background-color: var(--graphite);
+    width: 18.75rem;
+    height: 12.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.header__content--box {
+    background-color: transparent;
+    width: 18.75rem;
+    height: 12.5rem;
+    position: absolute;
+    border: .3125rem solid var(--nitro-blue);
+    top: -1rem;
+    left: -1rem;
+    z-index: 1;
+}
+
+.header__title {
+    color: var(--white);
+    text-align: center;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* Menu Sections */
+.submenu {
+    background-color: var(--graphite);
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+}
+
+.submenu__list {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+}
+
+.submenu__item {
+    margin-left: 0;
+}
+
+.submenu__link {
+    color: var(--white);
+    text-transform: uppercase;
+    padding-left: 1.25rem;
+    border-left: 0.25rem solid var(--nitro-blue);
+}
+
+/* Menu Cards (for each category) */
+.menu-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0.3125rem 0.5625rem -0.0625rem rgba(0, 0, 0, 0.25);
+    border-radius: 0.625rem;
+    box-sizing: border-box;
+}
+
+.menu-section:nth-child(even) {
+    background-color: var(--light-gray);
+}
+
+.menu-section:nth-child(odd) {
+    background-color: var(--nitro-pink);
+}
+
+/* Title inside each section */
+.menu-section__title {
+    margin-bottom: 1.5rem;
+    color: var(--graphite);
+    text-align: center; /* Ensure the title is centered */
+}
+
+/* Menu Items inside each section */
+.menu-item {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    margin: 0;
+}
+
+/* Centering the menu item content */
+.menu-item__name {
+    font-size: 2rem;
+    color: var(--graphite);
+    text-align: center; /* Center the name */
+    margin: 0;
+}
+
+.menu-item__description {
+    font-size: 1.25rem;
+    color: var(--graphite);
+    max-width: 35rem;
+    margin: 0 auto; /* Ensures centering */
+    text-align: center; /* Center the text inside the description */
+}
+
+.menu-item__price {
+    color: var(--nitro-blue);
+    text-align: center; /* Ensure price is centered */
+    margin-top: 0;
+}
+
+/* Menu Category General Styling */
+.menu-category {
+    padding: 0;
+    margin: 0;
+}

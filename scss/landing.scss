@@ -1,0 +1,245 @@
+@use './partials/global' as *;
+
+/* Landing Section */
+
+.landing-container {
+    display: flex;
+    justify-content: center;
+    background-color: var(--nitro-pink);
+
+}
+
+.landing {
+    color: var(--graphite);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1.25rem;
+    height: 75vh;
+    width: 90%;
+}
+
+.landing__description {
+    max-width: 22rem;
+    min-width: 22rem;
+}
+
+
+/* Products Section */
+.products {
+    text-align: left;
+    background-color: var(--light-gray);
+    padding: 2.5rem;
+    margin: 0;
+}
+
+.products__title {
+    text-align: center;
+    margin-top: 0;
+}
+
+.products__grid {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    width: 20.625rem;
+    /* height: 27.5rem; removed to allow for addition of product card sub-section of details */
+    margin: 1.25rem;
+    border-radius: 0.625rem;
+    box-shadow: 0 0.3125rem 0.5625rem -0.0625rem rgba(0, 0, 0, 0.25);
+    background-color: var(--white);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card__image-container {
+    display: flex;
+    justify-content: center;
+}
+
+.product-card__image {
+    height: 17.5rem;
+    padding: 2.5rem 1.25rem;
+}
+
+.product-card__name-count p {
+    margin: 0;
+    padding: 0;
+}
+
+.product-card__details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--nitro-pink);
+    padding: 2.5rem 1.25rem;
+
+}
+
+.product-card__count {
+    color: var(--gray);
+}
+
+.product-card__name, .product-card__price {
+    margin: 0;
+    padding: 0;
+}
+
+.product-card__price {
+    color: var(--nitro-blue);
+    font-weight: bold;
+}
+
+.products__cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 1.25rem;
+}
+
+/* Discount Section */
+.discount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10rem auto;
+    background-color: var(--graphite);
+    width: 90%;
+    animation: flash 2.5s infinite alternate;  // Infinite flashing animation
+}
+
+.discount__text {
+    font-size: var(--discount-size);
+    font-weight: var(--discount-weight-regular);
+    color: var(--white);
+    text-align: center;
+}
+
+.discount__text--bold {
+    font-weight: var(--discount-weight-bold);
+}
+
+@keyframes flash {
+    0% {
+        background-color: var(--graphite);
+    }
+    100% {
+        background-color: var(--nitro-blue);
+    }
+}
+
+/* Button */
+button {
+    padding: 1.25rem;
+    margin: 1.25rem 0;
+    background-color: var(--nitro-blue);
+    color: var(--white);
+    border: none;
+    width: 11.25rem;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease; /* Optional: smooth transition for background change */
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: -0.4rem;  /* Offset by 0.4rem vertically */
+    left: -0.4rem; /* Offset by 0.5rem horizontally */
+    width: 11.15rem;  /* Matches the width of the button */
+    height: 3.9rem;   /* Matches the height of the button */
+    background-color: transparent;
+    border: 0.125rem solid var(--graphite);
+    pointer-events: none;
+    transition: top 0.3s ease, left 0.3s ease; /* Animate top/left position changes */
+}
+
+/* Animation on button click */
+button:active::before {
+    animation: moveBox 0.3s forwards;
+}
+
+/* Keyframes to move the box to the original position */
+@keyframes moveBox {
+    to {
+        top: 0;
+        left: 0;
+    }
+}
+
+
+/* Story "We're Different" Section */
+.story {
+    background-color: var(--white);
+    color: var(--graphite);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20vw;
+    padding: 1.25rem;
+    margin: 5rem;
+}
+
+.story__description {
+    max-width: 30rem;
+    min-width: 20rem;
+}
+
+.story__image-wrapper {
+    background-image: url(../assets/images/coldbrewbackground.png);
+    background-size: contain;
+    width: 25rem;
+    height: 25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Necessary to position the ::before element */
+  
+    .story__image {
+    transition: rotate 2s linear infinite;
+  }
+  
+  &:hover .story__image {
+    animation: rotate 2s linear infinite;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.story__image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -1.25rem; /* 25px in rem */
+    left: -1.25rem; /* 25px in rem */
+    width: 24.5rem;     /* Width of the box */
+    height: 24.5rem;    /* Height of the box */
+    background-color: transparent; /* No fill color */
+    border: .3125rem solid var(--nitro-blue); /* 2px in rem (Graphite border) */
+    pointer-events: none; /* Allows interaction with content behind the image */
+}
+
+.story__image {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.story__image img {
+    height: 3.125rem;
+}

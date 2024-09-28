@@ -1,0 +1,320 @@
+/* Global Variables */
+:root {
+  /* Colors */
+  --nitro-blue: #5BACC3;
+  --nitro-pink: #FFF0ED;
+  --graphite: #393939;
+  --light-gray: #F7F7F7;
+  --gray: #909090;
+  --white: #FFF;
+  /* Typography */
+  /* Heading 1 and Heading 2 */
+  --heading-large-size: 3.75rem;
+  --heading-large-weight: 300; /* Light */
+  /* Heading 3, Nav Heading, Footer Heading */
+  --heading-medium-size: 2.0625rem;
+  --heading-medium-weight: 300; /* Light */
+  /* Nav Link, Button */
+  --nav-button-size: 1.3125rem;
+  --nav-button-weight: 400; /* Regular */
+  /* Paragraph Text - Regular */
+  --paragraph-size: 1.125rem;
+  --paragraph-weight: 400; /* Regular */
+  /* Discount Text */
+  --discount-size: 2.8125rem;
+  --discount-weight-regular: 400; /* Regular */
+  --discount-weight-bold: 700; /* Bold */
+}
+
+* {
+  box-sizing: border-box; /* Optionally, apply this globally for all elements */
+}
+
+/* TEXT STYLES */
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  padding-top: 6rem; /* Adjust the top padding to prevent content from being hidden behind the nav */
+}
+
+/* Heading 1. Heading 2, and Nav Heading, */
+h1, h2, .nav__title {
+  font-size: var(--heading-large-size);
+  font-weight: var(--heading-large-weight);
+}
+
+/* Heading 3, and Footer Heading */
+h3, .footer__title, .product-card__price {
+  font-size: var(--heading-medium-size);
+  font-weight: var(--heading-medium-weight);
+}
+
+/* Nav Link and Button */
+.nav__menu-link, button, .submenu__item {
+  font-size: var(--nav-button-size);
+  font-weight: var(--nav-button-weight);
+  text-transform: uppercase;
+}
+
+/* Paragraph Text - Regular */
+p {
+  font-size: var(--paragraph-size);
+  font-weight: var(--paragraph-weight);
+}
+
+/* Paragraph Text - Regular Italic */
+p.italic, .menu-item__description {
+  font-size: var(--paragraph-size);
+  font-weight: var(--paragraph-weight);
+  font-style: italic;
+}
+
+/* Link Styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+/* List Styles */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Header & Nav Bar */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  background-color: var(--nitro-pink);
+  padding: 1.25rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box; /* Ensures padding is included in the total width */
+}
+
+.nav--active {
+  color: var(--nitro-blue);
+}
+
+.nav__logo-wrap {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.nav__title {
+  margin: 0;
+  color: var(--graphite);
+  font-weight: 300;
+}
+
+.nav__menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav__menu-item {
+  color: var(--graphite);
+  margin-left: 1.25rem;
+}
+
+.nav__menu-item--cta {
+  color: var(--nitro-blue);
+}
+
+/* Footer */
+.footer {
+  position: relative; /* To allow absolute positioning for the image */
+}
+
+.footer__content {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: left;
+  background-color: var(--nitro-pink);
+  padding: 5rem 0;
+  position: relative; /* To contain the absolute positioning of the image */
+  z-index: 1; /* Ensures content stays above the background image */
+}
+
+.footer__section {
+  position: relative;
+  z-index: 1; /* Keeps footer sections above the image */
+}
+
+.footer__logo-img1 {
+  position: absolute;
+  top: 2.5rem; /* Offset 2rem from the top */
+  left: -3rem; /* Offset 2rem from the left */
+  width: 120px; /* Image size set to 120% */
+  opacity: 0.25; /* Opacity set to 5% */
+  z-index: 0; /* Ensure image stays behind content */
+}
+
+.footer__logo-img2 {
+  position: absolute;
+  bottom: 2.5rem; /* Offset 2rem from the top */
+  right: -3rem; /* Offset 2rem from the left */
+  width: 120px; /* Image size set to 120% */
+  opacity: 0.25; /* Opacity set to 5% */
+  z-index: 0; /* Ensure image stays behind content */
+}
+
+.footer__title {
+  margin-top: 0;
+}
+
+.footer__text {
+  margin: 0;
+  position: relative; /* Ensures text stays above the image */
+  z-index: 1;
+}
+
+.footer__social-icon {
+  width: 3.125rem;
+  position: relative; /* Keeps the social icons above the image */
+  z-index: 1;
+}
+
+.footer__social-link {
+  display: inline-block;
+}
+
+/* Hero Section */
+.header {
+  background-image: url(../assets/images/coffee-circle.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 52rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__content {
+  background-color: var(--graphite);
+  width: 18.75rem;
+  height: 12.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.header__content--box {
+  background-color: transparent;
+  width: 18.75rem;
+  height: 12.5rem;
+  position: absolute;
+  border: 0.3125rem solid var(--nitro-blue);
+  top: -1rem;
+  left: -1rem;
+  z-index: 1;
+}
+
+.header__title {
+  color: var(--white);
+  text-align: center;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* Menu Sections */
+.submenu {
+  background-color: var(--graphite);
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+}
+
+.submenu__list {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.submenu__item {
+  margin-left: 0;
+}
+
+.submenu__link {
+  color: var(--white);
+  text-transform: uppercase;
+  padding-left: 1.25rem;
+  border-left: 0.25rem solid var(--nitro-blue);
+}
+
+/* Menu Cards (for each category) */
+.menu-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0.3125rem 0.5625rem -0.0625rem rgba(0, 0, 0, 0.25);
+  border-radius: 0.625rem;
+  box-sizing: border-box;
+}
+
+.menu-section:nth-child(even) {
+  background-color: var(--light-gray);
+}
+
+.menu-section:nth-child(odd) {
+  background-color: var(--nitro-pink);
+}
+
+/* Title inside each section */
+.menu-section__title {
+  margin-bottom: 1.5rem;
+  color: var(--graphite);
+  text-align: center; /* Ensure the title is centered */
+}
+
+/* Menu Items inside each section */
+.menu-item {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  margin: 0;
+}
+
+/* Centering the menu item content */
+.menu-item__name {
+  font-size: 2rem;
+  color: var(--graphite);
+  text-align: center; /* Center the name */
+  margin: 0;
+}
+
+.menu-item__description {
+  font-size: 1.25rem;
+  color: var(--graphite);
+  max-width: 35rem;
+  margin: 0 auto; /* Ensures centering */
+  text-align: center; /* Center the text inside the description */
+}
+
+.menu-item__price {
+  color: var(--nitro-blue);
+  text-align: center; /* Ensure price is centered */
+  margin-top: 0;
+}
+
+/* Menu Category General Styling */
+.menu-category {
+  padding: 0;
+  margin: 0;
+}/*# sourceMappingURL=menu.css.map */
