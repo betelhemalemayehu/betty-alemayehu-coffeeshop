@@ -1,0 +1,46 @@
+@use './partials/global' as *;
+
+.about {
+    padding-top: 1.25;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 75vh;
+}
+
+.about__content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 90%;
+    gap: 2rem;
+    padding: 3rem 0;
+}
+
+.about__text {
+    max-width: 35rem;
+}
+
+.about__title {
+    font-size: var(--heading-large-size);
+    font-weight: var(--heading-large-weight);
+    color: var(--graphite);
+    margin-bottom: 1.5rem;
+}
+
+.about__description {
+    font-size: var(--paragraph-size);
+    color: var(--graphite);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.about__image-item {
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+/* Buttons */
+.btn {
+    @include button-styles(var(--nitro-blue), var(--white));
+}

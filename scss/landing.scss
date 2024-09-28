@@ -5,6 +5,7 @@
 .landing-container {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     background-color: var(--nitro-pink);
 
 }
@@ -13,11 +14,10 @@
     color: var(--graphite);
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     padding: 1.25rem;
-    height: 75vh;
-    width: 90%;
+    width: 80%;
 }
 
 .landing__description {
@@ -25,6 +25,9 @@
     min-width: 22rem;
 }
 
+.landing__image-wrapper {
+    margin: 1.25rem;
+}
 
 /* Products Section */
 .products {
@@ -55,7 +58,14 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    transition: transform 0.3s ease;
 }
+
+// Added for flair <3 //
+.product-card:hover {
+    transform: translateY(-3rem);
+}
+
 
 .product-card__image-container {
     display: flex;
@@ -147,13 +157,14 @@ button {
     transition: background-color 0.3s ease; /* Optional: smooth transition for background change */
 }
 
+//re. Ln. 47 in _global: experimenting with a pseudoclass for the box overlay on the landing page vs the menu page (which uses a html element instead)//
 button::before {
     content: '';
     position: absolute;
-    top: -0.4rem;  /* Offset by 0.4rem vertically */
-    left: -0.4rem; /* Offset by 0.5rem horizontally */
-    width: 11.15rem;  /* Matches the width of the button */
-    height: 3.9rem;   /* Matches the height of the button */
+    top: -0.4rem;
+    left: -0.4rem;
+    width: 11.15rem;
+    height: 3.9rem;
     background-color: transparent;
     border: 0.125rem solid var(--graphite);
     pointer-events: none;
@@ -193,6 +204,7 @@ button:active::before {
 }
 
 .story__image-wrapper {
+    // experimenting with the background-image function like on the menu page, overlaid animating can on this//
     background-image: url(../assets/images/coldbrewbackground.png);
     background-size: contain;
     width: 25rem;
@@ -200,7 +212,7 @@ button:active::before {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; /* Necessary to position the ::before element */
+    position: relative; /* Experiment requires this to position the ::before element */
   
     .story__image {
     transition: rotate 2s linear infinite;

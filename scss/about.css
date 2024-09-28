@@ -161,115 +161,70 @@ ul {
   display: inline-block;
 }
 
-/* Header Section */
-.header {
-  background-image: url(../assets/images/coffee-circle.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 52rem;
+.about {
+  padding-top: 1.25;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 75vh;
 }
 
-.header__content {
-  background-color: var(--graphite);
-  width: 18.75rem;
-  height: 12.5rem;
+.about__content {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  position: relative;
+  width: 90%;
+  gap: 2rem;
+  padding: 3rem 0;
 }
 
-.header__content--box {
-  background-color: transparent;
-  width: 18.75rem;
-  height: 12.5rem;
-  position: absolute;
-  border: 0.3125rem solid var(--nitro-blue);
-  top: -1rem;
-  left: -1rem;
-  z-index: 1;
-}
-
-.header__title {
-  color: var(--white);
-  text-align: center;
-  margin: 0;
-  text-transform: uppercase;
-}
-
-/* Submenu Section */
-.submenu {
-  background-color: var(--graphite);
-  color: var(--white);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 5rem;
-}
-
-.submenu__list {
-  display: flex;
-  gap: 1.25rem;
-  align-items: center;
-}
-
-.submenu__link {
-  color: var(--white);
-  text-transform: uppercase;
-  padding-left: 1.25rem;
-  border-left: 0.25rem solid var(--nitro-blue);
-}
-
-/* Menu Sections */
-/* Learning Studio insight: treat each section like the product card section on the landing page, allows for scalability */
-.menu-section {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.menu-section:nth-child(even) {
-  background-color: var(--light-gray);
-}
-
-.menu-section:nth-child(odd) {
-  background-color: var(--nitro-pink);
-}
-
-.menu-section__title {
-  margin-bottom: 1.5rem;
-  color: var(--graphite);
-  text-align: center;
-}
-
-/* Menu Items */
-.menu-item {
-  width: 100%;
-  text-align: center;
-  padding: 1rem 0;
-  margin: 0;
-}
-
-.menu-item__name {
-  font-size: 2rem;
-  color: var(--graphite);
-  margin: 0;
-}
-
-.menu-item__description {
-  font-size: 1.25rem;
-  color: var(--graphite);
+.about__text {
   max-width: 35rem;
-  margin: 0 auto;
 }
 
-.menu-item__price {
-  color: var(--nitro-blue);
-  margin-top: 0;
-}/*# sourceMappingURL=menu.css.map */
+.about__title {
+  font-size: var(--heading-large-size);
+  font-weight: var(--heading-large-weight);
+  color: var(--graphite);
+  margin-bottom: 1.5rem;
+}
+
+.about__description {
+  font-size: var(--paragraph-size);
+  color: var(--graphite);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.about__image-item {
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+/* Buttons */
+.btn {
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+  background-color: var(--nitro-blue);
+  color: var(--white);
+  border: none;
+  width: 11.25rem;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  top: -0.4rem;
+  left: -0.4rem;
+  width: 11.15rem;
+  height: 3.9rem;
+  border: 0.125rem solid var(--graphite);
+  pointer-events: none;
+  transition: top 0.3s ease, left 0.3s ease;
+}
+.btn:active::before {
+  animation: moveBox 0.3s forwards;
+}/*# sourceMappingURL=about.css.map */

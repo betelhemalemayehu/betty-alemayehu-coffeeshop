@@ -26,50 +26,46 @@
   --discount-weight-bold: 700; /* Bold */
 }
 
+/* Global Mixins */
+/*Button mixin for repeated additions*/
+/* Reset Styles */
 * {
-  box-sizing: border-box; /* Optionally, apply this globally for all elements */
+  box-sizing: border-box;
 }
 
-/* TEXT STYLES */
+/* Text Styles */
 body {
   font-family: "Open Sans", sans-serif;
-  font-weight: 400;
-  padding-top: 6rem; /* Adjust the top padding to prevent content from being hidden behind the nav */
+  font-weight: var(--paragraph-weight);
+  padding-top: 6rem;
 }
 
-/* Heading 1. Heading 2, and Nav Heading, */
 h1, h2, .nav__title {
   font-size: var(--heading-large-size);
   font-weight: var(--heading-large-weight);
 }
 
-/* Heading 3, and Footer Heading */
 h3, .footer__title, .product-card__price {
   font-size: var(--heading-medium-size);
   font-weight: var(--heading-medium-weight);
 }
 
-/* Nav Link and Button */
 .nav__menu-link, button, .submenu__item {
   font-size: var(--nav-button-size);
   font-weight: var(--nav-button-weight);
   text-transform: uppercase;
 }
 
-/* Paragraph Text - Regular */
 p {
   font-size: var(--paragraph-size);
   font-weight: var(--paragraph-weight);
 }
 
-/* Paragraph Text - Regular Italic */
 p.italic, .menu-item__description {
-  font-size: var(--paragraph-size);
-  font-weight: var(--paragraph-weight);
   font-style: italic;
 }
 
-/* Link Styles */
+/* Link Styles to remove underline and bullets, etc. */
 a {
   text-decoration: none;
   color: inherit;
@@ -79,13 +75,12 @@ a:hover, a:focus {
   text-decoration: underline;
 }
 
-/* List Styles */
 ul {
   list-style: none;
   padding: 0;
 }
 
-/* Header & Nav Bar */
+/* Header & top navigation bar */
 .nav {
   display: flex;
   justify-content: space-between;
@@ -97,7 +92,6 @@ ul {
   left: 0;
   width: 100%;
   z-index: 1000;
-  box-sizing: border-box; /* Ensures padding is included in the total width */
 }
 
 .nav--active {
@@ -106,7 +100,6 @@ ul {
 
 .nav__logo-wrap {
   display: flex;
-  flex-wrap: nowrap;
   align-items: center;
 }
 
@@ -122,18 +115,10 @@ ul {
   gap: 2rem;
 }
 
-.nav__menu-item {
-  color: var(--graphite);
-  margin-left: 1.25rem;
-}
-
-.nav__menu-item--cta {
-  color: var(--nitro-blue);
-}
-
-/* Footer */
+/* Footer styling */
 .footer {
-  position: relative; /* To allow absolute positioning for the image */
+  position: relative;
+  overflow: hidden;
 }
 
 .footer__content {
@@ -142,47 +127,34 @@ ul {
   text-align: left;
   background-color: var(--nitro-pink);
   padding: 5rem 0;
-  position: relative; /* To contain the absolute positioning of the image */
-  z-index: 1; /* Ensures content stays above the background image */
 }
 
 .footer__section {
   position: relative;
-  z-index: 1; /* Keeps footer sections above the image */
+}
+
+.footer__logo-img1, .footer__logo-img2 {
+  position: absolute;
+  width: 120px;
+  opacity: 0.25;
 }
 
 .footer__logo-img1 {
-  position: absolute;
-  top: 2.5rem; /* Offset 2rem from the top */
-  left: -3rem; /* Offset 2rem from the left */
-  width: 120px; /* Image size set to 120% */
-  opacity: 0.25; /* Opacity set to 5% */
-  z-index: 0; /* Ensure image stays behind content */
+  top: 2.5rem;
+  left: -3rem;
 }
 
 .footer__logo-img2 {
-  position: absolute;
-  bottom: 2.5rem; /* Offset 2rem from the top */
-  right: -3rem; /* Offset 2rem from the left */
-  width: 120px; /* Image size set to 120% */
-  opacity: 0.25; /* Opacity set to 5% */
-  z-index: 0; /* Ensure image stays behind content */
-}
-
-.footer__title {
-  margin-top: 0;
+  bottom: 2.5rem;
+  right: -3rem;
 }
 
 .footer__text {
   margin: 0;
-  position: relative; /* Ensures text stays above the image */
-  z-index: 1;
 }
 
 .footer__social-icon {
   width: 3.125rem;
-  position: relative; /* Keeps the social icons above the image */
-  z-index: 1;
 }
 
 .footer__social-link {
@@ -193,6 +165,7 @@ ul {
 .landing-container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   background-color: var(--nitro-pink);
 }
 
@@ -200,16 +173,19 @@ ul {
   color: var(--graphite);
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   padding: 1.25rem;
-  height: 75vh;
-  width: 90%;
+  width: 80%;
 }
 
 .landing__description {
   max-width: 22rem;
   min-width: 22rem;
+}
+
+.landing__image-wrapper {
+  margin: 1.25rem;
 }
 
 /* Products Section */
@@ -241,6 +217,11 @@ ul {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-3rem);
 }
 
 .product-card__image-container {
@@ -334,10 +315,10 @@ button {
 button::before {
   content: "";
   position: absolute;
-  top: -0.4rem; /* Offset by 0.4rem vertically */
-  left: -0.4rem; /* Offset by 0.5rem horizontally */
-  width: 11.15rem; /* Matches the width of the button */
-  height: 3.9rem; /* Matches the height of the button */
+  top: -0.4rem;
+  left: -0.4rem;
+  width: 11.15rem;
+  height: 3.9rem;
   background-color: transparent;
   border: 0.125rem solid var(--graphite);
   pointer-events: none;
@@ -382,7 +363,7 @@ button:active::before {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative; /* Necessary to position the ::before element */
+  position: relative; /* Experiment requires this to position the ::before element */
 }
 .story__image-wrapper .story__image {
   transition: rotate 2s linear infinite;
