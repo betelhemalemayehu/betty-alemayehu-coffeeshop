@@ -342,7 +342,6 @@ button:active::before {
   background-color: var(--white);
   color: var(--graphite);
   display: flex;
-  flex-flow: row wrap;
   justify-content: center;
   align-items: center;
   gap: 20vw;

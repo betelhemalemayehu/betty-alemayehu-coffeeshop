@@ -190,7 +190,7 @@ button:active::before {
     background-color: var(--white);
     color: var(--graphite);
     display: flex;
-    flex-flow: row wrap;
+    // flex-flow: row wrap; contrain to 1 row, in the future this would be where I add in responsive design elements for desktop vs mobile or tablet
     justify-content: center;
     align-items: center;
     gap: 20vw;
